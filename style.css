@@ -51,6 +51,11 @@ header {
     font-size: larger;
     font-weight: bold;
     font-family: "Alexandria", sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.signUp:hover {
+    background-color: var(--login-button-color);
 }
 
 .logIn {
@@ -63,6 +68,11 @@ header {
     font-size: larger;
     font-weight: bold;
     font-family: "Alexandria", sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.logIn:hover {
+    background-color: var(--button-color);
 }
 
 main {
@@ -70,7 +80,6 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 2870px;
     background-color: var(--background-color);
 
 }
@@ -165,6 +174,11 @@ main {
     border-radius: 10px;
     font-family: "Alexandria", sans-serif;
     border: 2px solid white;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: var(--button-color);
 }
 
 .movies {
@@ -185,28 +199,25 @@ main {
     font-weight: 600;
 }
 
-.movieGallery{
-     justify-content: center;
+.movieGallery {
+    justify-content: center;
     align-items: center;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    height: 400px;
- }
+}
 
- .movieCards{
-     justify-content: center;
+.movieCards {
+    justify-content: center;
     align-items: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     gap: 10px;
-    height: 400px;
+    flex-wrap: wrap;
+    padding: 25px 0;
 }
 
 .movieCard {
     display: flex;
     flex-direction: column;
-    width: 405px;
+    width: 205px;
     height: 350px;
     background-color: var(--card-background-color);
     border-radius: 10px;
@@ -221,13 +232,27 @@ main {
 .movieCard img {
     width: 130px;
     height: 180px;
-    box-shadow: 10px 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 
 }
 
-.movieCard p{
+.movieCard p {
     font-weight: bold;
+}
+
+.movieCard button {
+    width: 130px;
+    height: 35px;
+    background-color: var(--login-button-color);
+    color: white;
+    border-radius: 10px;
+    font-family: "Alexandria", sans-serif;
+    border: 2px solid white;
+    transition: background-color 0.3s ease;
+}
+
+.movieCard button:hover {
+    background-color: var(--button-color);
 }
 
 footer {
@@ -240,4 +265,89 @@ footer {
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--card-background-color);
+}
+
+/* --- Responsividade para Tablet --- */
+@media (max-width: 1024px) {
+    .inicio {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    .inicio p {
+        margin-top: 0;
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .widget img {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+    }
+
+    .cards, .movieCards {
+        flex-wrap: wrap;
+        padding: 25px;
+        height: auto;
+    }
+}
+
+/* --- Responsividade para Celular --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    .logo {
+        width: 200px;
+        height: auto;
+        order: -1; /* Coloca o logo no topo */
+    }
+
+    .button {
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .signUp, .logIn {
+        width: 100%;
+    }
+
+    .inicio p {
+        font-size: 28px;
+    }
+
+    .books p, .movies p {
+        font-size: 36px;
+    }
+
+    .cards, .movieCards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 405px;
+    }
+
+    .movieCard {
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        padding: 20px;
+    }
+
+    .movieCard img {
+        height: auto;
+        max-height: 250px;
+    }
 }

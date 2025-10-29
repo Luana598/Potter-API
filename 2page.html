@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./2page.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./app.js" defer type="module"></script>
+       <script src="./details.js" type="module"></script>
     <title>Potter.Search</title>
 </head>
 
@@ -29,26 +27,29 @@
         </div>
     </header>
     <main>
-        <div class="inicio">
-            <div class="widget">
-                <img src="./img/widget-página_inicial.jpg" alt="">
-            </div>
-            <p class="quote">"Happiness can be <br> found even in the darkest of times, <br> if one only <br> remembers
-                to turn <br> on
-                the lights" <br> - Albus Dumbledore</p>
+        <div class="MovieName">
+            <h1 id="item-title"></h1>
         </div>
-        <div class="bookGallery">
-            <div class="books">
-                <p>Books</p>
+        <div class="MovieInfo">
+            <div class="poster">
+                <img id="item-image" src="" alt="Poster/capa">
+                <div class="trailer-container">
+                    <a href="https://www.youtube.com/watch?v=PbdM1db3JbY" class="trailer-button" target="_blank" rel="noopener noreferrer">View Trailer</a>
+                </div>
             </div>
-            <div class="cards" id = "bookGallery">
+            <div class="productionInfo">
+                <ul>
+                    <li id="info-1">running Time:</li>
+                    <li id="info-2">release Date:</li>
+                    <li id="info-3">directors:</li>
+                    <li id="info-4">producers:</li>
+                </ul>
             </div>
-        </div>
-        <div class="movieGallery">
-            <div class="movies">
-                <p>Movies</p>
-            </div>
-            <div class="movieCards" id="movieGallery">
+            <div class="summary">
+                <h2>summary</h2>
+                <div class="summaryBox">
+                    <p id="item-summary"></p>
+                </div>
             </div>
         </div>
     </main>

@@ -8,7 +8,6 @@ async function buscarLivros() {
     const response = await fetch(url)
     const livros = await response.json()
 
-    console.log(livros)
     return livros
 }
 
@@ -39,6 +38,12 @@ async function exibirLivros() {
         const buttonDetails = document.createElement('button')
         buttonDetails.textContent = 'Show More'
 
+        buttonDetails.addEventListener('click', () => {
+            localStorage.setItem('itemId', book.id);
+            localStorage.setItem('itemType', 'book');
+            window.location.href = './2page.html';
+        })
+
         card.appendChild(capa)
         card.appendChild(nome)
         card.appendChild(releaseDate)
@@ -54,7 +59,6 @@ async function buscarFilmes() {
     const response = await fetch(url)
     const filmes = await response.json()
 
-    console.log(filmes)
     return filmes
 }
 
@@ -63,36 +67,40 @@ async function exibirFilmes() {
     const movieList = await buscarFilmes()
 
     const movies = movieList.data;
+        movies.forEach(movie => {
 
-    movies.forEach(movie => {
+            const card = document.createElement('div')
+            card.className = 'movieCard'
 
-        const card = document.createElement('div')
-        card.className = 'movieCard'
+            const poster = document.createElement('img')
+            poster.src = movie.attributes.poster
 
-        const poster = document.createElement('img')
-        poster.src = movie.attributes.poster
+            const nome = document.createElement('p')
+            nome.textContent = movie.attributes.title
 
-        const nome = document.createElement('p')
-        nome.textContent = movie.attributes.title
+            const releaseDate = document.createElement('a')
+            releaseDate.textContent = movie.attributes.release_date
 
-        const releaseDate = document.createElement('a')
-        releaseDate.textContent = movie.attributes.release_date
+            const runningTime = document.createElement('a')
+            runningTime.textContent = movie.attributes.running_time
 
-        const runningTime = document.createElement('a')
-        runningTime.textContent = movie.attributes.running_time
+            const buttonDetails = document.createElement('button')
+            buttonDetails.textContent = 'Show More'
 
-        const buttonDetails = document.createElement('button')
-        buttonDetails.textContent = 'Show More'
+            buttonDetails.addEventListener('click', () => {
+                localStorage.setItem('itemId', movie.id);
+                localStorage.setItem('itemType', 'movie');
+                window.location.href = './2page.html';
+            })
 
-        card.appendChild(poster)
-        card.appendChild(nome)
-        card.appendChild(releaseDate)
-        card.appendChild(runningTime)
-        card.appendChild(buttonDetails)
-        console.log(card)
-        galeriaDeFilmes.appendChild(card)
+            card.appendChild(poster)
+            card.appendChild(nome)
+            card.appendChild(releaseDate)
+            card.appendChild(runningTime)
+            card.appendChild(buttonDetails)
 
-    });
+            galeriaDeFilmes.appendChild(card)
+        });
 }
 exibirFilmes()
 exibirLivros()
